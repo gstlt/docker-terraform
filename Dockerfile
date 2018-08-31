@@ -11,6 +11,7 @@ ENV TERRAFORM_VERSION $VERSION
 LABEL Description="Terraform"
 
 RUN apk update && apk upgrade && \
+    apk add bash ca-certificates && \
     cd /tmp && \
     wget --quiet ${RELEASES_URL}/terraform/${TERRAFORM_VERSION}/${TERRAFORM_FILENAME} && \
     unzip ${TERRAFORM_FILENAME} && \
